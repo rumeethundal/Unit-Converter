@@ -12,10 +12,19 @@ public class UnitConverter {
                     "Choose 3: To convert from celsius to fahrenheit\n" +
                     "Choose 4: To convert from centimeters to inches\n" +
                     "Choose 5: To convert from meters to yards\n" +
+                    "Choose 6: To exit program\n" +
                     "Answer:");
 
             object = kb.nextInt();
 
+            if(object == 6) {
+                System.out.print("Exiting program. Goodbye!");
+                return;
+            }
+            else {
+                System.out.print("Invalid. Must choose from options provided");
+                    continue;
+            }
 
             switch (object) {
                 case 1:
@@ -39,7 +48,7 @@ public class UnitConverter {
                     break;
 
 //                default:
-//                    System.out.print("Invalid: ");
+//                    System.out.print("Invalid. Must choose from options provided.");
             }
         }
     }
