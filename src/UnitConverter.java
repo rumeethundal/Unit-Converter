@@ -21,7 +21,7 @@ public class UnitConverter {
                 System.out.print("Exiting program. Goodbye!");
                 return;
             }
-            else {
+            else if (object < 1 || object > 6) {
                 System.out.print("Invalid. Must choose from options provided");
                     continue;
             }
@@ -47,8 +47,8 @@ public class UnitConverter {
                     convertMetersToYards();
                     break;
 
-//                default:
-//                    System.out.print("Invalid. Must choose from options provided.");
+                default:
+                    System.out.print("Invalid. Must choose from options provided.");
             }
         }
     }
