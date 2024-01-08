@@ -55,7 +55,7 @@ public class UnitConverter {
             }
                 catch(InputMismatchException e) {
                     System.out.println("Invalid. Must choose from options provided.");
-                    kb.next();
+                    kb.nextLine();
             }
         }
     }
