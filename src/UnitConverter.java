@@ -1,4 +1,6 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
 public class UnitConverter {
     static Scanner kb = new Scanner(System.in);
 
@@ -15,40 +17,45 @@ public class UnitConverter {
                     "Choose 6: To exit program\n" +
                     "Answer:");
 
-            object = kb.nextInt();
+            try {
+                object = kb.nextInt();
 
-            if(object == 6) {
-                System.out.print("Exiting program. Goodbye!");
-                return;
-            }
-            else if (object < 1 || object > 6) {
-                System.out.print("Invalid. Must choose from options provided");
+                if (object == 6) {
+                    System.out.print("Exiting program. Goodbye!");
+                    return;
+                } else if (object < 1 || object > 6) {
+                    System.out.print("Invalid. Must choose from options provided");
                     continue;
+                }
+
+                switch (object) {
+                    case 1:
+                        convertKilometersToMiles();
+                        break;
+
+                    case 2:
+                        convertKilogramsToPounds();
+                        break;
+
+                    case 3:
+                        convertCelsiusToFahrenheit();
+                        break;
+
+                    case 4:
+                        convertCentimetersToInches();
+                        break;
+
+                    case 5:
+                        convertMetersToYards();
+                        break;
+
+                    default:
+                        System.out.print("Invalid. Must choose from options provided.");
+                }
             }
-
-            switch (object) {
-                case 1:
-                    convertKilometersToMiles();
-                    break;
-
-                case 2:
-                    convertKilogramsToPounds();
-                    break;
-
-                case 3:
-                    convertCelsiusToFahrenheit();
-                    break;
-
-                case 4:
-                    convertCentimetersToInches();
-                    break;
-
-                case 5:
-                    convertMetersToYards();
-                    break;
-
-                default:
-                    System.out.print("Invalid. Must choose from options provided.");
+                catch(InputMismatchException e) {
+                    System.out.println("Invalid. Must choose from options provided.");
+                    kb.next();
             }
         }
     }
@@ -56,7 +63,6 @@ public class UnitConverter {
     public static void convertKilometersToMiles() {
         System.out.println("Enters kilometers to convert to miles:");
         double kilometers = kb.nextDouble();
-        //System.out.println("Enters kilometers to convert to miles:");
         double miles = kilometers * 0.62;
         System.out.println(kilometers + " kilometers is equal to " + miles + " miles");
     }
